@@ -75,7 +75,7 @@ int DIGRAPHoutdeg(Digraph G, Vertex v){
   Vertex w;
   int outdeg = 0;
 
-  for(w = 0; w < G->V; w++)
+
     if (G->adj[v][w] == 1)
       outdeg++;
   return outdeg;
