@@ -75,14 +75,14 @@ int DIGRAPHoutdeg(Digraph G, Vertex v){
   Vertex w;
   int outdeg = 0;
 
-
+  for (w = 0; w < G-> V; w++)
     if (G->adj[v][w] == 1)
       outdeg++;
   return outdeg;
 }
 
 
-/*A função recebe um Digrafo G e um vértice v e devolve o grau de saída
+/*A função recebe um Digrafo G e um vértice v e devolve o grau de entrada
 do vértice v no inteiro grau*/
 int DIGRAPHindeg(Digraph G, Vertex v){
   Vertex w;
@@ -112,6 +112,24 @@ void pathR(Digraph G, Vertex v){
       }
 }
 
+
+/*função básica - modificada*/
+void pathR2(Digraph G, Vertex v, Vertex t){
+  Vertex w;
+  lbl[v] = 0;
+  for (w = 0; w < G->V; w++)
+    if ( w == t) {
+      lbl[w] = 0;
+      break;
+    } else {
+      if (G->adj[v][w] == 1)
+        if (lbl[w] == -1){
+          parnt[w] = v;
+          pathR(G, w);
+        }
+   }
+}
+
 /*função básica*/
 int DIGRAPHpath(Digraph G, Vertex s, Vertex t){
   Vertex v;
@@ -126,6 +144,23 @@ int DIGRAPHpath(Digraph G, Vertex s, Vertex t){
   else
     return 1;
 }
+
+/*função básica modificada*/
+int DIGRAPHpath2(Digraph G, Vertex s, Vertex t){
+  Vertex v;
+  for (v = 0; v < G->V; v++){
+    lbl[v] = -1;
+    parnt[v] = -1;
+  }
+  parnt[s] = s;
+  pathR2(G, s, t);
+  if (lbl[t] == -1)
+    return 0;
+  else
+    return 1;
+}
+
+
 
 int st_corte(Digraph G, Vertex s, Vertex t){
   Vertex v, w;
@@ -220,3 +255,55 @@ void DIGRAPHcaminho(Digraph G, Vertex s, Vertex t){
       printf("%d ", fila[topo]);
     printf("\n");
 }
+
+int  DIGRAPHequal(Digraph G1, Digraph G2){
+  int i, j;
+
+  if (G1->A != G2->A || G1->V != G2->V)
+    return 0;
+    
+  for (i = 0; i < G1->V; i++)
+    for (j = 0; j < G1->V; j++)
+      if (G1->adj[i][j] != G2->adj[i][j])
+        return 0;
+ 
+  return 1;
+}
+
+void  DIGRAPHreverse(Digraph G){
+  //Digraph G2;
+  int i, j;
+  int m[G->V][G->V];
+
+  for (i = 0; i < G->V; i++)
+    for (j = 0; j < G->V; j++) {
+      if (G->adj[i][j] == 1) {
+        G->adj[i][j] = 0;
+        m[j][i] = 1;
+      }
+    }
+
+  for (i = 0; i < G->V; i++)
+    for (j = 0; j < G->V; j++) {
+      if (m[i][j] == 1) {
+        G->adj[i][j] = 1;
+      }
+    }
+
+  DIGRAPHshow(G);
+  //return G;
+     
+}
+
+/**
+4. A função DIGRAPHpath() funciona corretamente quando s é igual a t?  E quando 
+
+G->A vale 0?  E quando G->V vale 1?
+Sim. Como todo arco é alcançável por ele mesmo o lbl de s é setado para zero.
+
+Quando G->A vale 0: como não têm arcos então não existirá caminho entre s e t e todos os valores de lbl serão iguais a -1
+
+Quando G->V vale 1: Já que só tem um vertice s = t. Logo lbl[s] = 0 e termina.
+
+**/
+
