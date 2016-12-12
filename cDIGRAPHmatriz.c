@@ -35,7 +35,7 @@ typedef struct digraph *Digraph;
 
 double **MATRIXdouble(int r, int c, double val){
   Vertex i, j;
-  int **m = malloc(r * sizeof(double*));
+  double **m = malloc(r * sizeof(double*));
   for (i = 0; i < r; i++)
     m[i] = malloc(c * sizeof(double));
   for(i = 0; i < r; i++)
@@ -55,7 +55,7 @@ Digraph DIGRAPHinit(int V){
 }
 
 void DIGRAPHinsertA(Digraph G, Vertex v, Vertex w, double cst){
-  if (v != w && G->adj[v][w] == maxCST){
+  if (v != w && G->adj[v][w] == maxCST) {
     G->adj[v][w] = cst;
     G-> A++;
   }
@@ -67,7 +67,7 @@ void DIGRAPHshow(Digraph G){
     printf("%2d:", v);
     for(w = 0; w < G->V; w++)
       if (G->adj[v][w] != maxCST)
-        printf("%2d(%2f)", w, G->adj[v][w]);
+        printf("%2d(%.2f)", w, G->adj[v][w]);
     printf("\n");
   }
 }
@@ -207,7 +207,7 @@ void DIGRAPHdestroy(Digraph G){
   G = NULL;
 }
 
-
+/*
 Digraph DIGRAPHconstruct(){
   Digraph G;
   FILE *arq;
@@ -231,7 +231,7 @@ Digraph DIGRAPHconstruct(){
 
   return G;
 }
-
+*/
 Digraph DIGRAPHaleatorio(int V, int A){
   Vertex v, w;
   double cst;
@@ -243,7 +243,7 @@ Digraph DIGRAPHaleatorio(int V, int A){
   while (G->A < A) {
     v = rand() % V;
     w = rand() % V;
-    cts = (double)(rand() % 100);
+    cst = (double)(rand() % 100);
     DIGRAPHinsertA( G, v, w, cst);
   }
 

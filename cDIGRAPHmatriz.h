@@ -1,8 +1,8 @@
-#include "matriz.c"
+#include "cDIGRAPHmatriz.c"
 
-int **MATRIXint(int r, int c, int val);
+double **MATRIXdouble(int r, int c, double val);
 Digraph DIGRAPHinit(int V);
-void DIGRAPHinsertA(Digraph G, Vertex v, Vertex w);
+void DIGRAPHinsertA(Digraph G, Vertex v, Vertex w, double cst);
 void DIGRAPHshow(Digraph G);
 void pathR(Digraph G, Vertex v);
 int  DIGRAPHpath(Digraph G, Vertex s, Vertex t);

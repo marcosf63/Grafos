@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "lista.h"
+#include "cDIGRAPHmatriz.h"
 
 
 
 int main(){
-  Digraph G1;
+  Digraph G2, G1;
 
 /*
   printf("Quantidade vertices: ");
@@ -15,7 +15,7 @@ int main(){
   //DIGRAPHinsertA(G,1,4);
   printf("Quantoidade de arcos: ");
   scanf("%d", &A );
- 
+
   for (i = 0; i < A; i++) {
     printf("Digite o arco v-w: ");
     scanf("%d-%d", &v, &w);
@@ -25,15 +25,15 @@ int main(){
 */
   G1 = DIGRAPHinit(3);
 //  G2 = DIGRAPHinit(3);
- 
-  DIGRAPHinsertA(G1, 0, 1);
-  DIGRAPHinsertA(G1, 0, 2);
-  DIGRAPHinsertA(G1, 1, 2);
+
+  DIGRAPHinsertA(G1, 0, 1, 2.8);
+  DIGRAPHinsertA(G1, 0, 2, 3.0);
+  DIGRAPHinsertA(G1, 1, 2, 5.0);
  // DIGRAPHinsertA(G2, 0, 1);
  // DIGRAPHinsertA(G2, 0, 2);
  // DIGRAPHinsertA(G2, 1, 2);
 
-  
+
 
   //DIGRAPHshow(G1);
   //DIGRAPHshow(G2);
@@ -51,10 +51,10 @@ int main(){
  //DIGRAPHreverse(G1);
 
  // DIGRAPHshow(G2);
-  //G1 = DIGRAPHaleatorio(4,5);
-  DIGRAPHshow(G1);
-  DIGRAPHremoveA(G1, 1, 2);
-  DIGRAPHshow(G1);
+  G2 = DIGRAPHaleatorio(4,5);
+  DIGRAPHshow(G2);
+  //DIGRAPHremoveA(G1, 1, 2);
+  //DIGRAPHshow(G1);
 
 
 
