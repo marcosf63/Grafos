@@ -1,0 +1,5 @@
+1. [Sedgewick 17.40] Escreva uma função DIGRAPHindeg que calcule o grau de entrada um vértice v de um digrafo G. 
+Escreva uma função DIGRAPHoutdeg que calcule o grau de saída de v.
+
+2. Consistência. Escreva uma função que confira a consistência da representação de um digrafo G. (Em particular, 
+verifique se a representação não tem laços e se os arcos existentes é igual ao seu valor geristrado na estrutura.)

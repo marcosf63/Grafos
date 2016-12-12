@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "matriz.h"
+#include <time.h>
+#include "lista.h"
 
 
 
 int main(){
-  Digraph G1, G2;
-  int V, A, i, v, w, igual;
+  Digraph G1;
+
 /*
   printf("Quantidade vertices: ");
   scanf("%d", &V);
@@ -34,7 +35,7 @@ int main(){
 
   
 
-  DIGRAPHshow(G1);
+  //DIGRAPHshow(G1);
   //DIGRAPHshow(G2);
 
 //  printf("O grau de saida de 0 : %d\n", DIGRAPHoutdeg(G, 0));
@@ -47,9 +48,14 @@ int main(){
   //else
     //printf("nok\n");
 
- DIGRAPHreverse(G1);
+ //DIGRAPHreverse(G1);
 
  // DIGRAPHshow(G2);
+  //G1 = DIGRAPHaleatorio(4,5);
+  DIGRAPHshow(G1);
+  DIGRAPHremoveA(G1, 1, 2);
+  DIGRAPHshow(G1);
+
 
 
   return 0;

@@ -1,0 +1,28 @@
+﻿
+
+1. Escreva uma função DIGRAPHindeg que calcule o grau de entrada um vértice v 
+de um digrafo G. Escreva uma função DIGRAPHoutdeg que calcule o grau de saída 
+de v.
+
+
+
+
+
+2. Consistência. Escreva uma função que confira a consistência da representação 
+de um digrafo G. (Em particular, verifique se a representação não tem laços e 
+se os arcos existentes é igual ao seu valor geristrado na estrutura.)
+
+
+3. Escreva uma variante da função DIGRAPHpath() que pare imediatamente ao 
+descobrir que t está ao alcance de s.
+
+4. A função DIGRAPHpath() funciona corretamente quando s é igual a t?  E quando 
+G->A vale 0?  E quando G->V vale 1?  
+
+5. Escreva uma função DIGRAPHequal() que decida se dois digrafos, digamos G1 e 
+G2, são iguais.
+
+6.  Escreva uma função DIGRAPHreverse() que inverta um digrafo G, ou seja, 
+construa um digrafo cujos arcos têm direção contrária aos de G.
+
+OBS: Enviar sua biblioteca e códigos via DropBox.

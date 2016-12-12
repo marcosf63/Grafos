@@ -1,0 +1,5 @@
+﻿
+
+1. Implemente a biblioteca com custos nos arcos, ela deverá se chamar cDIGRAPHmatriz e cDIGRAPHlista, por motivos óbvios. (c vem de custo)
+2. Escreva uma versão da função DIGRAPHshow para digrafos com custos nos arcos.
+3. Modifique a função DIGRAPHaleatorio digrafo aleatório com custos aleatório nos arcos.
